@@ -1,4 +1,5 @@
-+import random
+import random
+
 # Ne prend rien en entree,lis le fichier mot_pendu.txt, donne en sortie une liste de mots
 def bank_mot():
     with open("mots_pendu.txt",'r') as s:
