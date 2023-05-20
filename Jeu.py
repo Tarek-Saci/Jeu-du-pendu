@@ -9,7 +9,7 @@ def mot_aleatoire():
 #(_ _ _ _ _ )
 def affichage (mot,lettre_utilisateur,mot_affiche):
     i = 0
-    for lettre in mot and i in range(0,len(mot)):
+    for i,lettre in enumerate(mot):
         if lettre_utilisateur == lettre:
             mot_affiche[i] = lettre_utilisateur
 
@@ -21,15 +21,17 @@ while run:# refaire une partie ?
     nombre_vies = 6
     mot = mot_aleatoire()
     mot_affiche = ['_ '] * len(mot)
-
     lettre_utilisateur = ''
+
     while nombre_vies > 0: # Boucle du jeu
         print('veuillez entrer une lettre :')
         print(f'il vous reste {nombre_vies} chances')
         affichage(mot,lettre_utilisateur,mot_affiche)
         print(mot_affiche)
         print(mot)
-        lettre_utilisateur=input()
+        if len(lettre_utilisateur) != 1:
+            lettre_utilisateur=input()
+            continue
         if lettre_utilisateur in mot:
             continue
         else:
