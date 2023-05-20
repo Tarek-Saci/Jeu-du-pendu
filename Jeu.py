@@ -24,18 +24,21 @@ run = True
 while run:# refaire une partie ?
     nombre_vies = 6
     mot = mot_aleatoire()
+    tirets = tiret(mot)
+    lettre_utilisateur = ''
     while nombre_vies > 0: # Boucle du jeu
         print('veuillez entrer une lettre :')
-        mot_cache(mot)
+        affichage(lettre_utilisateur,mot,tirets)
         print(f'il vous reste {nombre_vies} chances')
         print(mot)
+        indice(lettre_utilisateur,mot)
         lettre_utilisateur=input()
         if lettre_utilisateur in mot:
-            affiche_lettre(lettre_utilisateur,mot)
-            break
+            continue
+        else:
+            nombre_vies = nombre_vies - 1
     refaire = input('voulez vous refaire une partie [y]/[n] ?\n')
     if refaire == 'y':
         run = True
     else:
         run = False
-print(mot_aleatoire())
