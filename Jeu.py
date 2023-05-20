@@ -1,37 +1,34 @@
 import random
 
-# Ne prend rien en entree,lis le fichier mot_pendu.txt, donne en sortie une liste de mots
-def bank_mot():
-    with open("mots_pendu.txt",'r') as s:
-        return s.read().split()
-# ne prend rien en entre, appele la fonction bank_mot extrait un mot aleatoir, donne en sortie une chaine de caracteres
 def mot_aleatoire():
-    i = random.randint(0,len(bank_mot())-1)      #indice aleatoire
-    mot_aleatoir = str(bank_mot()[i])
+    with open("mots_pendu.txt", 'r') as s:
+        s = s.read().split()
+        i = random.randint(0,len(s)-1)     #indice aleatoire
+        mot_aleatoir = str(s[i])
     return mot_aleatoir
 #(_ _ _ _ _ )
-def mot_cache(a):
-    liste1 = ['_ '] * len(a)
-    print(''.join(liste1))
-    return ''.join(liste1)
-def affiche_lettre(lettre_utilisateur,mot):
-    i = mot.find(lettre_utilisateur)
+def affichage (mot,lettre_utilisateur,mot_affiche):
+    i = 0
+    for lettre in mot and i in range(0,len(mot)):
+        if lettre_utilisateur == lettre:
+            mot_affiche[i] = lettre_utilisateur
 
-    print(mot_cache(mot))
-    return
+    #print(''.join(mot_affiche))
+    return mot_affiche
 
 run = True
 while run:# refaire une partie ?
     nombre_vies = 6
     mot = mot_aleatoire()
-    tirets = tiret(mot)
+    mot_affiche = ['_ '] * len(mot)
+
     lettre_utilisateur = ''
     while nombre_vies > 0: # Boucle du jeu
         print('veuillez entrer une lettre :')
-        affichage(lettre_utilisateur,mot,tirets)
         print(f'il vous reste {nombre_vies} chances')
+        affichage(mot,lettre_utilisateur,mot_affiche)
+        print(mot_affiche)
         print(mot)
-        indice(lettre_utilisateur,mot)
         lettre_utilisateur=input()
         if lettre_utilisateur in mot:
             continue
