@@ -10,14 +10,14 @@ def mot_aleatoire():
     mot_aleatoir = str(bank_mot()[i])
     return mot_aleatoir
 #(_ _ _ _ _ )
-def mot_cache(a):
-    liste1 = ['_ '] * len(a)
-    print(''.join(liste1))
-    return ''.join(liste1)
-def affiche_lettre(lettre_utilisateur,mot):
-    i = mot.find(lettre_utilisateur)
-    print(mot_cache(mot))
+def affichage (lettre_utilisateur,mot,tirets):
+    tirets[mot.find(lettre_utilisateur)] = lettre_utilisateur
+    #print(''.join(tirets))
+    print (tirets)
     return
+def tirets(mot):
+    tirets = [' _'] * len(mot)
+    return tirets
 
 run = True
 while run:# refaire une partie ?
@@ -30,7 +30,7 @@ while run:# refaire une partie ?
         print(mot)
         lettre_utilisateur=input()
         if lettre_utilisateur in mot:
-            affiche_lettre(lettre_utilisateur,mot)
+
             continue
         else:
             nombre_vies = nombre_vies - 1
