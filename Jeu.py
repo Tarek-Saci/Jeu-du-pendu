@@ -9,7 +9,6 @@ def mot_aleatoire():
     i = random.randint(0,len(bank_mot())-1)      #indice aleatoire
     mot_aleatoir = str(bank_mot()[i])
     return mot_aleatoir
-#(_ _ _ _ _ )
 def affichage (lettre_utilisateur,mot,tirets):
     if lettre_utilisateur not in mot:
         tirets = tirets
@@ -22,9 +21,13 @@ def tiret(mot):
     tirets = [' _'] * len(mot)
     return tirets
 def indice(lettre_utilisateur, mot):
-    indice = []
+    for lettre_utilisateur in mot:
+        indice = [mot.index(lettre_utilisateur)]
 
     return print(indice)
+
+
+#################################
 run = True
 while run:# refaire une partie ?
     nombre_vies = 6
@@ -39,7 +42,6 @@ while run:# refaire une partie ?
         indice(lettre_utilisateur,mot)
         lettre_utilisateur=input()
         if lettre_utilisateur in mot:
-
             continue
         else:
             nombre_vies = nombre_vies - 1
@@ -48,4 +50,3 @@ while run:# refaire une partie ?
         run = True
     else:
         run = False
-print(mot_aleatoire())
