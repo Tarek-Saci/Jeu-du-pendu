@@ -1,5 +1,5 @@
-import random
 
+import random
 def mot_aleatoire():
     with open("mots_pendu.txt", 'r') as s:
         s = s.read().split()
@@ -33,9 +33,14 @@ while run:# refaire une partie ?
             lettre_utilisateur=input()
             continue
         if lettre_utilisateur in mot:
-            continue
+            print('Bravo ! vous avez trouvé une lettre !')
+            lettre_utilisateur = ''
+
         else:
             nombre_vies = nombre_vies - 1
+            print('ce n\'est pas la bonne lettre')
+
+
     refaire = input('voulez vous refaire une partie [y]/[n] ?\n')
     if refaire == 'y':
         run = True
