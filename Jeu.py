@@ -11,23 +11,32 @@ def mot_aleatoire():
     return mot_aleatoir
 #(_ _ _ _ _ )
 def affichage (lettre_utilisateur,mot,tirets):
-    tirets[mot.find(lettre_utilisateur)] = lettre_utilisateur
+    if lettre_utilisateur not in mot:
+        tirets = tirets
+    else:
+        tirets[mot.index(lettre_utilisateur)] = lettre_utilisateur
     #print(''.join(tirets))
     print (tirets)
     return
-def tirets(mot):
+def tiret(mot):
     tirets = [' _'] * len(mot)
     return tirets
+def indice(lettre_utilisateur, mot):
+    indice = []
 
+    return print(indice)
 run = True
 while run:# refaire une partie ?
     nombre_vies = 6
     mot = mot_aleatoire()
+    tirets = tiret(mot)
+    lettre_utilisateur = ''
     while nombre_vies > 0: # Boucle du jeu
         print('veuillez entrer une lettre :')
-        mot_cache(mot)
+        affichage(lettre_utilisateur,mot,tirets)
         print(f'il vous reste {nombre_vies} chances')
         print(mot)
+        indice(lettre_utilisateur,mot)
         lettre_utilisateur=input()
         if lettre_utilisateur in mot:
 
