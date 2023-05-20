@@ -16,7 +16,6 @@ def mot_cache(a):
     return ''.join(liste1)
 def affiche_lettre(lettre_utilisateur,mot):
     i = mot.find(lettre_utilisateur)
-
     print(mot_cache(mot))
     return
 
@@ -32,7 +31,9 @@ while run:# refaire une partie ?
         lettre_utilisateur=input()
         if lettre_utilisateur in mot:
             affiche_lettre(lettre_utilisateur,mot)
-            break
+            continue
+        else:
+            nombre_vies = nombre_vies - 1
     refaire = input('voulez vous refaire une partie [y]/[n] ?\n')
     if refaire == 'y':
         run = True
