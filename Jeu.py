@@ -33,14 +33,14 @@ while run:  #passser a un aurtre mot
         print(f'il vous reste {nombre_vies} chances')
         print(f'Score : {score}')
         affichage(mot,lettre_utilisateur,mot_affiche)
-        print(mot_affiche)
+        print(str(mot_affiche))
         print(mot)
         if len(lettre_utilisateur) != 1:
             lettre_utilisateur=input()
             print('Une lettre a la fois')
             continue
         if lettre_utilisateur in mot:
-            print('\n \n \n \n \n \n \n \nBravo ! vous avez trouvé une lettre !')
+            print('\n \n \n \n \n \n \n \nBravo ! vous avez trouvé une lettre !\n')
             lettre_utilisateur = ''
 
         else:
@@ -53,6 +53,7 @@ while run:  #passser a un aurtre mot
 
     else:
         print(f'Vous avez perdu :\') \n Le mot etait {mot}')
+        break
 
 refaire = input('Voulez vous refaire une partie [y]/[n] ?\n')
 if refaire == 'y':
