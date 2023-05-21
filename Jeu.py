@@ -1,41 +1,63 @@
+
 import random
-
-# Ne prend rien en entree,lis le fichier mot_pendu.txt, donne en sortie une liste de mots
-def bank_mot():
-    with open("mots_pendu.txt",'r') as s:
-        return s.read().split()
-# ne prend rien en entre, appele la fonction bank_mot extrait un mot aleatoir, donne en sortie une chaine de caracteres
+#pioche un mot aleatoire dans la liste de mots
 def mot_aleatoire():
-    i = random.randint(0,len(bank_mot())-1)      #indice aleatoire
-    mot_aleatoir = str(bank_mot()[i])
+    with open("mots_pendu.txt", 'r') as s:
+        s = s.read().split()
+        i = random.randint(0,len(s)-1)     #indice aleatoire
+        mot_aleatoir = str(s[i])
     return mot_aleatoir
-#(_ _ _ _ _ )
-def mot_cache(a):
-    liste1 = ['_ '] * len(a)
-    print(''.join(liste1))
-    return ''.join(liste1)
-def affiche_lettre(lettre_utilisateur,mot):
-    i = mot.find(lettre_utilisateur)
+# affichage de l'etat du mot, remplace les lettres pas encore trouvées pas des tirets (_ _ _ _ _ )
+def affichage (mot,lettre_utilisateur,mot_affiche):
+    i = 0
+    for i,lettre in enumerate(mot):
+        if lettre_utilisateur == lettre:
+            mot_affiche[i] = lettre_utilisateur
 
-    print(mot_cache(mot))
-    return
+    #print(''.join(mot_affiche))
+    return mot_affiche
 
 run = True
-while run:# refaire une partie ?
-    nombre_vies = 6
-    mot = mot_aleatoire()
-    while nombre_vies > 0: # Boucle du jeu
-        print('veuillez entrer une lettre :')
-        mot_cache(mot)
-        print(f'il vous reste {nombre_vies} chances')
-        print(mot)
-        lettre_utilisateur=input()
-        if lettre_utilisateur in mot:
-            affiche_lettre(lettre_utilisateur,mot)
+
+
+while run:      # refaire une partie ?
+    score = 0
+    while run:  #passser a un aurtre mot
+        nombre_vies = 6
+        mot = mot_aleatoire()
+        mot_affiche = ['_ '] * len(mot)
+        lettre_utilisateur = ''
+
+
+        while nombre_vies > 0 and mot_affiche.count('_ ') != 0: # Boucle du jeu
+            print('veuillez entrer une lettre :')
+            print(f'il vous reste {nombre_vies} chances')
+            print(f'Score : {score}')
+            affichage(mot,lettre_utilisateur,mot_affiche)
+            print(''.join(mot_affiche))
+            print(mot)
+            if len(lettre_utilisateur) != 1:
+                lettre_utilisateur=input()
+                print('Une lettre a la fois')
+                continue
+            if lettre_utilisateur in mot:
+                print('\n \n \n \n \n \n \n \nBravo ! vous avez trouvé une lettre !\n')
+                lettre_utilisateur = ''
+
+            else:
+                nombre_vies = nombre_vies - 1
+                print('\n \n \n \n \n \n \n \nce n\'est pas la bonne lettre')
+                lettre_utilisateur = ''
+        if mot_affiche.count('_ ') == 0:
+            score = score + 1
+            print(f'Vous avez trouvé le mot !\n {mot}')
+
+        else:
+            print(f'Vous avez perdu :\') \n Le mot etait {mot}\n votre score est : {score}')
             break
-    refaire = input('voulez vous refaire une partie [y]/[n] ?\n')
+
+    refaire = input('Voulez vous refaire une partie [y]/[n] ?\n')
     if refaire == 'y':
         run = True
-    else:
+    elif refaire == 'n':
         run = False
-print(mot_aleatoire())
