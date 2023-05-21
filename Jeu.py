@@ -33,7 +33,7 @@ while run:  #passser a un aurtre mot
         print(f'il vous reste {nombre_vies} chances')
         print(f'Score : {score}')
         affichage(mot,lettre_utilisateur,mot_affiche)
-        print(str(mot_affiche))
+        print(''.join(mot_affiche))
         print(mot)
         if len(lettre_utilisateur) != 1:
             lettre_utilisateur=input()
@@ -52,7 +52,7 @@ while run:  #passser a un aurtre mot
         print(f'Vous avez trouvé le mot !\n {mot}')
 
     else:
-        print(f'Vous avez perdu :\') \n Le mot etait {mot}')
+        print(f'Vous avez perdu :\') \n Le mot etait {mot}\n votre score est : {score}')
         break
 
 refaire = input('Voulez vous refaire une partie [y]/[n] ?\n')
