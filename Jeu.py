@@ -55,7 +55,7 @@ while run:      # refaire une partie ?
             print(f'Vous avez perdu :\') \n Le mot etait {mot}\n votre score est : {score}')
             break
 
-    refaire = input('Voulez vous refaire une partie [y]/[n] ?\n')
+    refaire = input('Voulez vous refaire une partie [y]/[n] ?\n') #demander au joueur si il veut refaire une partie
     if refaire == 'y':
         run = True
     elif refaire == 'n':
