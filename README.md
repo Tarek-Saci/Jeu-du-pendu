@@ -11,15 +11,14 @@ Ce dépôt contient un programme Python pour jouer au jeu du Pendu.
 ## Comment utiliser le contenu
 
 1. Assurez-vous d'avoir Python installé sur votre système.
-2. Téléchargez ou clonez ce dépôt sur votre machine.
-
-### Jouer au jeu
-
+2. Si vous avez téléchargé le dépot en fichier `*.zip`, veuillez l'extraire.
 1. Ouvrez un terminal ou une invite de commandes.
 2. Accédez au répertoire contenant les fichiers du dépôt.
-3. Exécutez la commande suivante pour lancer le jeu :
-4. Suivez les instructions à l'écran pour jouer au jeu du Pendu.
-
+3. Exécutez la commande suivante pour lancer le jeu : 
+    `python Jeu.py`
+Suivez les instructions à l'écran pour jouer au jeu du Pendu.
+### Jouer au jeu
+1.Suivez les instructions à l'écran pour jouer au jeu du Pendu.  
 Note : Le jeu sélectionnera un mot aléatoire à partir du fichier `words.txt`. Vous pouvez ajouter ou modifier des mots dans ce fichier pour personnaliser le jeu.
 
-Amusez-vous bien !
+### GG ;) !
