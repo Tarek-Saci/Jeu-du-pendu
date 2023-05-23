@@ -7,14 +7,13 @@ def mot_aleatoire():
         i = random.randint(0,len(s)-1)     #indice aleatoire
         mot_aleatoir = str(s[i])
     return mot_aleatoir
+
 # affichage de l'etat du mot, remplace les lettres pas encore trouvées pas des tirets (_ _ _ _ _ )
 def affichage (mot,lettre_utilisateur,mot_affiche):
     i = 0
     for i,lettre in enumerate(mot):
         if lettre_utilisateur == lettre:
             mot_affiche[i] = lettre_utilisateur
-
-    #print(''.join(mot_affiche))
     return mot_affiche
 
 run = True
