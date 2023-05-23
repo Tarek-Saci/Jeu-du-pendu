@@ -21,7 +21,7 @@ run = True
 
 while run:      # refaire une partie ?
     score = 0
-    while run:  #passser a un aurtre mot
+    while run:  #passser au mot suivant apres avoir trouvé le precedant
         nombre_vies = 6
         mot = mot_aleatoire()
         mot_affiche = ['_ '] * len(mot)
@@ -34,7 +34,7 @@ while run:      # refaire une partie ?
             print(f'Score : {score}')
             affichage(mot,lettre_utilisateur,mot_affiche)
             print(''.join(mot_affiche))
-            print(mot)
+
             if len(lettre_utilisateur) != 1:
                 lettre_utilisateur=input()
                 print('Une lettre a la fois')
